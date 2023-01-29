@@ -1,15 +1,20 @@
 <script setup>
-const props = defineProps(['handler'])
-const btnList = ['Whitewater', 'Nightpanther', 'Krakengard', 'Wolfthorn']
 
-const handlerOut = function(e) {
-    console.log('im out')
-}
+const images = [
+  { name: 'Whitewater', image: '/src/assets/images/whitewater.jpg' },
+  { name: 'Nightpanther', image: '/src/assets/images/nightpanther.jpg' },
+  { name: 'Krakengard', image: '/src/assets/images/krakengard.jpg' },
+  { name: 'Wolfthorn', image: '/src/assets/images/wolfthorn.jpg' },
+]
+
+const emit = defineEmits(['image-selected']);
+emit('image-selected', images[0]);
+
 </script>
 
 <template>    
     <div class="c-list">
-        <h1 v-for="(item, i) in btnList" :key="item" @mouseover="props.handler(i)" @mouseout="handlerOut">{{ item }}</h1>
+        <h1 v-for="image in images" @mouseover="$emit('image-selected', image)">{{ image.name }}</h1>
     </div>
 </template>
 
