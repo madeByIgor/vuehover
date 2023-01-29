@@ -1,14 +1,7 @@
 <script setup>
-
-const images = [
-  { name: 'Whitewater', image: '/src/assets/images/whitewater.jpg' },
-  { name: 'Nightpanther', image: '/src/assets/images/nightpanther.jpg' },
-  { name: 'Krakengard', image: '/src/assets/images/krakengard.jpg' },
-  { name: 'Wolfthorn', image: '/src/assets/images/wolfthorn.jpg' },
-]
-
+const props = defineProps(['images'])
 const emit = defineEmits(['image-selected']);
-emit('image-selected', images[0]);
+emit('image-selected', props.images[0]);
 
 </script>
 
